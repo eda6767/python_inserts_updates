@@ -138,3 +138,42 @@ except FileExistsError as error:
 ```
 
 </sub>
+
+<sub/>
+As the last stage - creating file with updates: </sub>
+
+
+<sub/>
+
+```python
+
+sql_text = []
+    target = 'KPR_11_PRD.T11001_PRD_HRCHY_DIM'
+    df = file
+
+    line_start = "---[CHANGE START]DCT-KOMB-01.01." + version + "- FIX"
+    line_end = "---[CHANGE END]DCT-KOMB-01.01." + version + "- FIX"
+
+    for index, row in df.iterrows():
+        x='UPDATE ' + target + ' SET '
+
+        for key, value in update_column_dict.items():
+            x = x + str(key + "='" + str(df.iloc[index, update_column_dict[key]]) + "', ")
+        x = x[:-2]
+        x = x + " WHERE PRD_KEY= '" + str(df.iloc[index, dict_all_columns['PRD_KEY']]) + "' AND END_DT = '" + str(
+            df.iloc[index, dict_all_columns['END_DT']]) + "';"
+        sql_text.append(x)
+        new = '\n'.join(sql_text)
+        new = '----' *50 + '\n' + line_start + '\n\n' + new + '\n\n' + 'COMMIT;' + '\n\n'  + line_end + '\n' + '----' *50
+        with open('{}.sql'.format(dict_name) , 'wt')as output:
+            output.write(new)
+
+    print("\n\n File has been created \n\n")
+
+```
+
+</sub>
+
+
+<img width="1207" alt="Zrzut ekranu 2023-10-31 o 20 50 29" src="https://github.com/eda6767/python_inserts_updates/assets/102791467/697f0c91-c674-4598-ad98-1c7eac164247">
+
