@@ -174,6 +174,7 @@ sql_text = []
 
 </sub>
 
+<sub/> Final file for our example looks like below : </sub> 
 
 <img width="1207" alt="Zrzut ekranu 2023-10-31 o 20 50 29" src="https://github.com/eda6767/python_inserts_updates/assets/102791467/697f0c91-c674-4598-ad98-1c7eac164247">
 
