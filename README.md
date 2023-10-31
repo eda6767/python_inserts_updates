@@ -40,6 +40,29 @@ print("Version of dictionary for actualization: ")
 print(file_name[0])
 
 ```
-
 </sub>
 
+
+
+
+<sub/>
+Now, having accurate file, we can load data into dataframe using a converter. Sometimes you can have values for columns which you want to update like '02' as a string, not as number. For this purpose we will use, a converter as below: </sub>
+
+<br/>
+</br>
+
+<sub/>
+
+```python
+column_list = []
+df_column = pd.read_excel(file_name[0], skiprows=0).columns
+for i in df_column:
+    column_list.append(i)
+converter = {col: str for col in column_list}
+
+input_data = pd.read_excel(file_name[0], skiprows=0, converters=converter)
+```
+<br/>
+</br>
+
+</sub>
