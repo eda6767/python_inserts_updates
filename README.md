@@ -83,3 +83,33 @@ print('\n\n' + "Numbers of updates in {}: {} ".format(dict_name, n))
 ```
 
 </sub>
+
+
+<sub/> To make updates for given dataframe, we need to know the order of columns. For this let's create a dictionary with a key - column's name, and value - position of given columns. Therefore we will create a dictionary with columns, where there is a 'CAT' in column's name - these will be columns for updates. </sub>
+
+
+<sub/>
+
+```python
+column_list=input_data.columns
+
+dict_all_columns={}
+index=0
+for i in column_list:
+    index+=1
+    dict_all_columns[i]=index
+
+for key, value in dict_all_columns.items():
+    print("Column name: {} | position : {}".format(key, value))
+
+update_column_dict={}
+for key, value in dict_all_columns.items():
+    if 'CAT' in key:
+        update_column_dict[key]=value
+
+for key, value in update_column_dict.items():
+    print("Column name: {} | position : {}".format(key, value))
+
+```
+
+</sub>
