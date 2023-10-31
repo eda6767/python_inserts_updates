@@ -9,11 +9,33 @@ In this project I will show solution how prepare in automatically way inserts or
 <br/>
 </br>
 
-<sub/> Let's say that we have couples of files with dictionaries in various versions in location _dir_list_ . We can find all files for given _dict_name_ in this repository as a list as also find all version for given dictionaries assuming that file's name meets the standards </sub>
+<sub/> Let's say that we have couples of files with dictionaries in various versions in location _dir_list_ . We can find all files for given _dict_name_ in this repository as a list as also find all version for given dictionaries assuming that file's name meets the standards.</sub>
 
 
+<sub/>
 
-```
+```python
 dictionaries_files =[x for x in dir_list if dict_name in x and 'xlsx' in x]
 versions =[x[-9:len(x ) -5] for x in dictionaries_files if dict_name in x]
 ```
+
+</sub>
+
+<sub>
+As far we got list of files names for given dictionary and list of available versions. For us the most important is the newest version, beacuse for that we want to create updates. So, let's choose file with the highest version. </sub> 
+
+
+<sub/>
+
+```python
+current_version =max(versions)
+print("Current version of dicionary to actualization: {}".format(current_version))
+
+file_name =[x for x in dir_list if dict_name in x if current_version in x]
+print("Version of dictionary for actualization: ")
+print(file_name[0])
+
+```
+
+</sub>
+
