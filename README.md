@@ -121,3 +121,20 @@ for key, value in update_column_dict.items():
 <img width="1162" alt="Zrzut ekranu 2023-10-31 o 20 44 49" src="https://github.com/eda6767/python_inserts_updates/assets/102791467/511ac299-9aa6-45d9-a3be-8608b7f9db9c">
 
 
+<sub/>
+
+```python
+
+os.chdir(path_dict_target)
+directory="DCT-KOMB-01.01." + str(version) + "-FIX"
+parent_dir = path_dict_target
+path = os.path.join(parent_dir, directory)
+try:
+    os.mkdir(path)
+    print("Folder has been created {}".format(directory))
+except FileExistsError as error:
+    print(error)
+
+```
+
+</sub>
