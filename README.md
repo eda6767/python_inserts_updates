@@ -66,3 +66,18 @@ input_data = pd.read_excel(file_name[0], skiprows=0, converters=converter)
 </br>
 
 </sub>
+
+
+<sub/> Next step, when we have loaded data is choosing accurate rows to updates based on version column. </sub>
+
+
+<sub/> 
+```python
+f=float(current_version)
+file=input_data[input_data['VERSION']==f]
+file=file.reset_index()
+file=file.fillna('NA')
+n=len(file.index)
+print('\n\n' + "Numbers of updates in {}: {} ".format(dict_name, n))
+```
+</sub>
