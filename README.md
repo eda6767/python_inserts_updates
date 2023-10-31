@@ -113,3 +113,11 @@ for key, value in update_column_dict.items():
 ```
 
 </sub>
+
+
+<sub/> Each code for updates has to be kept in separate folder, and file for update has to start and end with format as below, where XXX is a number of version for specific package. </sub>
+
+
+<img width="1162" alt="Zrzut ekranu 2023-10-31 o 20 44 49" src="https://github.com/eda6767/python_inserts_updates/assets/102791467/511ac299-9aa6-45d9-a3be-8608b7f9db9c">
+
+
